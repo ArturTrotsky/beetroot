@@ -9,8 +9,9 @@
 
 <?php
 
-require_once "userExplode.php";
+$userFiltered = [];
 
+require_once "userExplode.php";
 require_once "userFilter.php";
 
 var_dump($userFiltered);

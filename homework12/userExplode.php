@@ -1,5 +1,5 @@
 <?php
-$f = fopen(__DIR__ . DIRECTORY_SEPARATOR, "r");
+$f = fopen(__DIR__ . DIRECTORY_SEPARATOR . "users.txt", "r");
 if (!$f) {
     echo 'Error file';
     die();

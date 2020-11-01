@@ -1,0 +1,31 @@
+Order deny,allow
+Allow from all
+
+<RequireAll>
+Require all granted
+</RequireAll>
+
+RewriteEngine On
+
+php_flag display_startup_errors on
+php_flag display_errors on
+php_flag html_errors on
+php_flag log_errors on
+
+DirectoryIndex index.php
+
+
+# перенаправление любых запросов на task2.php
+# RewriteCond %{ENV:REDIRECT_STATUS} ^$
+# RewriteRule !(^$|.*\.(css|jpg|gif)) / [R=301,L]
+
+# перенаправление запросов на несуществующие файлы и папки на task2.php
+# ВАРИАНТ1
+# ErrorDocument 404 http://www.artur.trotsky
+
+# перенаправление запросов на несуществующие файлы и папки на task2.php
+# ВАРИАНТ2
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^(.*)$ task2.php?url=$1 [QSA,L]
+# RewriteRule ^(task2.php)$ task2.php?url=task2.php [QSA,L]
