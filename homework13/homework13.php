@@ -28,6 +28,7 @@ function findUser(string $login, string $password, array $users)
     foreach ($users as $user) {
         if ($login == $user[1] && $password == $user[2]) {
             $findUser = $user;
+            break;
         }
     }
     return $findUser;
