@@ -1,0 +1,98 @@
+[
+  {
+    "login": "login1",
+    "password": 1
+  },
+  {
+    "login": "login2",
+    "password": 2
+  },
+  {
+    "login": "login3",
+    "password": 3
+  },
+  {
+    "login": "login4",
+    "password": 4
+  },
+  {
+    "login": "login5",
+    "password": 5
+  },
+  {
+    "login": "login6",
+    "password": 6
+  },
+  {
+    "login": "111",
+    "password": "111"
+  },
+  {
+    "login": "asdfgh",
+    "password": "asdfgh"
+  },
+  {
+    "login": "test",
+    "password": "123"
+  },
+  {
+    "login": "te3st",
+    "password": "123"
+  },
+  {
+    "login": "t3e3st",
+    "password": "123"
+  },
+  {
+    "login": "t3222222222e3st",
+    "password": "123"
+  },
+  {
+    "login": "t322s2222222e3st",
+    "password": "123"
+  },
+  {
+    "login": "t322s22222s22e3st",
+    "password": "123"
+  },
+  {
+    "login": "t322s2e2222s22e3st",
+    "password": "123"
+  },
+  {
+    "login": "t322s72e2222s22e3st",
+    "password": "123"
+  },
+  {
+    "login": "erererer",
+    "password": "retrrere"
+  },
+  {
+    "login": "test123",
+    "password": "123"
+  },
+  {
+    "login": "test12333333333333333333333333333333333333",
+    "password": "123"
+  },
+  {
+    "login": "test000000",
+    "password": "123"
+  },
+  {
+    "login": "wertehyr",
+    "password": "weafstdfg"
+  },
+  {
+    "login": "test11111",
+    "password": "123"
+  },
+  {
+    "login": "ffff",
+    "password": "ffff"
+  },
+  {
+    "login": "test000000000000000000000000000000000000",
+    "password": "123"
+  }
+]
