@@ -23,7 +23,9 @@ $products = json_decode($products, true);
 if (!empty($_POST)) {
     session_start();
     $_SESSION['cart'] = array_intersect_key($products, $_POST);
+    echo '<pre>';
     var_dump($_SESSION);
+    echo '</pre>';
 }
 ?>
 
