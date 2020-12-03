@@ -3,6 +3,9 @@
 нажать кнопку заказать, после нажатия кнопки заказать необходимо сохранить выбранные товары в сессию,
 после перезагрузки страницы отобразить выбранные ранее товары, получив их из сессии.-->
 
+<!--посмотрел, норм, а можешь еще сделать чтобы можно было количество выбирать и оно в корзине отображалось-->
+<!--и если перешел просто на катклог товаров а в сессии что-то есть, чтобы там уже стоят чекбокс, и количество тоже-->
+
 <?php
 
 /*$products = [
@@ -15,18 +18,9 @@
 ];
 
 file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products.json', json_encode($products));*/
-
-
+session_start();
 $products = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'products.json');
 $products = json_decode($products, true);
-
-if (!empty($_POST)) {
-    session_start();
-    $_SESSION['cart'] = array_intersect_key($products, $_POST);
-    echo '<pre>';
-    var_dump($_SESSION);
-    echo '</pre>';
-}
 ?>
 
 <!DOCTYPE HTML>
@@ -36,25 +30,41 @@ if (!empty($_POST)) {
     <title>Store</title>
 </head>
 <body>
-<form method="post" action="">
+<form method="post" action="/homework14/cart.php">
     <table border="1">
         <caption><h2>GADGET STORE</h2></caption>
         <?php for ($i = 0; $i < count($products); $i++) {
             if ($i == 0) {
+                // формирование заголовков таблицы
                 echo "<tr>";
                 foreach ($products[$i] as $key => $value) {
                     echo "<th>$key</th>";
                 }
                 echo "<th>Add to Cart</th>";
                 echo "</tr>";
+                // конец формирование заголовков таблицы
             }
             echo "<tr>";
+
             foreach ($products[$i] as $value) {
                 echo "<td>$value</td>";
             }
-            echo "<td><input type=\"checkbox\" name=$i /></td>";
+
+            if (isset($_SESSION['cart']['checkbox'][$i])) {
+                echo "<td><input type=\"checkbox\" name=\"checkbox[$i]\" checked>";
+            } else {
+                echo "<td><input type=\"checkbox\" name=\"checkbox[$i]\">";
+            }
+
+            if (isset($_SESSION['cart']['quantity'][$i])) {
+                echo "<input type=\"text\" name=\"quantity[$i]\" value=\"{$_SESSION['cart']['quantity'][$i]}\"></td>";
+            } else {
+                echo "<input type=\"text\" name=\"quantity[$i]\"></td>";
+            }
+
             echo "</tr>";
-        } ?>
+        }
+        ?>
     </table>
     <input type="submit" value="Buy selected products">
 </form>
