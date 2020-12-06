@@ -7,8 +7,8 @@
 
 <form action="/homework20/index.php" method="post">
     <p>
-        <label>Login</label>
-        <input type="text" name="login" value="">
+        <label>Email</label>
+        <input type="text" name="email" value="">
     </p>
     <p>
         <label>Password</label>

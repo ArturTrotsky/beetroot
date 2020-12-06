@@ -1,26 +1,16 @@
 <?php
-var_dump($_POST);
 
 require_once 'config.php';
+require_once FUNCTIONS_PATH . 'db.php';
 
-$login = $_POST['login'];
-$password = $_POST['password'];
+if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
-$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $user = getUser($pdo, $_POST['email'], $_POST['password']);
 
-var_dump($login, $password); die();
+    if (!$user) {
+        header("Location: /homework20/templates/login.php?error=1");
+        die();
+    }
+}
 
-$stmt = $pdo->query("
-    SELECT
-        `login`, `password`
-    FROM
-        `users`
-    WHERE
-        `login` = $login
-    AND 
-        `password` = $password
-    ");
-
-$result = $stmt->fetch();
-var_dump($result);
+header('location: /homework20/templates/login.php');
