@@ -9,6 +9,8 @@ class User
     private $salt = 'dsfb32ewd2qa';
     private $properties = ['id', 'name', 'email'];
     private $cardnumber;
+    private $status = 'active';
+    protected const TYPE = 'user';
 
     public function __construct(string $name, string $password, string $email, int $id = null)
     {
@@ -59,26 +61,29 @@ class User
         return false;
     }
 
-    public function register($db): int
+    public function register(object $db, $type = self::TYPE): int
     {
         $stmt = $db->prepare("
             INSERT INTO `users` (
                 `name`,
                 `email`,
-                `password`
+                `password`,
+                `type`
             )
             VALUES
                 (
                     :name,
                     :email,
-                    :password
+                    :password,
+                    :type
                 )"
         );
         $stmt->execute(
             [
-                "name" => $this->name,
-                "email" => $this->email,
-                "password" => $this->password,
+                'name' => $this->name,
+                'email' => $this->email,
+                'password' => $this->password,
+                'type' => $type
             ]
         );
         $this->id = $db->lastInsertId();
@@ -118,5 +123,10 @@ class User
         } else {
             $this->name = $value;
         }
+    }
+
+    protected function changeStatus(string $status): void
+    {
+        $this->status = $status;
     }
 }

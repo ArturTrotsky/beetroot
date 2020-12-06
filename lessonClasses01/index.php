@@ -2,8 +2,19 @@
 declare(strict_types=1);
 require_once 'config.php';
 require_once CLASSES_PATH . 'User.php';
+require_once CLASSES_PATH . 'Admin.php';
 
-$user1 = new User('11', '11', 'email@email');
+$user1 = new User('Alex', '12345678', 'alex@ukr.net');
+
+$admin = new Admin('adminName', '12345', 'admin@email');
+$admin->register($pdo);
+
+//Блокировка пользователя
+$user2 = new User('Alex', '12345678', 'alex@ukr.net', 1);
+$admin2 = new Admin('adminName', '12345', 'admin@email', 13);
+$admin->block($user2, $pdo);
+$admin->block($admin2, $pdo);
+
 
 /*регистрация пользователя в базе данных
 $userId1 = $user1->register($pdo);*/
