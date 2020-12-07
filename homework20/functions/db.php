@@ -19,7 +19,7 @@ function getUser(object $connection, string $email, string $password)
 
     ");
 
-    $stmt->execute(['email' => $email, 'password' => $password]);
+    $stmt->execute(['email' => $email, 'password' => encryptPass($password)]);
     return $stmt->fetch();
 }
 
@@ -43,7 +43,7 @@ function registerUser(object $connection, string $name, string $email, string $p
         [
             'name' => $name,
             'email' => $email,
-            'password' => $password
+            'password' => encryptPass($password)
         ]
     );
 

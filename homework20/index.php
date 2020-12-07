@@ -10,19 +10,18 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $user = getUser($pdo, $_POST['email'], $_POST['password']);
 
     if ($user) {
-        $_SESSION['email'] = $user['email'];
-        $_SESSION['name'] = $user['name'];
+        $_SESSION['username'] = $user['name'];
         if (!empty($_POST['remember'])) {
             $time = time();
             $cookie = $user['name'] . ':' . $time . ':' . generateSignature($user['name'], $time);
-            setcookie('name', $cookie, time() + (10 * 365 * 24 * 60 * 60));
+            setcookie('username', $cookie, time() + (10 * 365 * 24 * 60 * 60));
         }
-        header("Location: /homework20/templates/home.php");
+        header("Location: /homework20/home.php");
         die();
     } else {
         header("Location: /homework20/templates/login.php?error=1");
         die();
     }
+} else {
+    header('location: /homework20/templates/login.php');
 }
-
-header('location: /homework20/templates/login.php');
