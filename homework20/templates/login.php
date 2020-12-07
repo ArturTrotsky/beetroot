@@ -20,7 +20,7 @@
     </div>
     <input type="submit" value="Sing In">
 </form>
-<h4>or <a href="/homework15/view/register.php">register</a></h4>
+<h4>or <a href="/homework20/templates/register.php">register</a></h4>
 
 </body>
 </html>
