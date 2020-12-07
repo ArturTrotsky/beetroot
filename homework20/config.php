@@ -8,6 +8,4 @@ define('DB_PASSWORD', 'secret');
 $dsn = "mysql:host=localhost;port=3306;dbname=" . DB_NAME . ";charset=utf8";
 $pdo = new PDO($dsn, DB_USER, DB_PASSWORD);
 
-
-
 session_start();
