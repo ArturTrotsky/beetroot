@@ -2,7 +2,7 @@
 require_once dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'config.php';
 ?>
 
-<?php if ($_SESSION['username']): ?>
+<?php if (!empty($_SESSION['username'])): ?>
 
     <!DOCTYPE html>
     <html lang="en">
@@ -64,6 +64,7 @@ require_once dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'config.php';
     </body>
     </html>
 
-<?php else: ?>
+<?php else:
     header("Location: /homework20/templates/login.php");
+    ?>
 <?php endif; ?>
