@@ -32,6 +32,6 @@ if (!empty($_POST['login']) && !empty($_POST['password'])) {
             }
         }
     }
-    header("Location: /lesson15/login.php?error=1");
+    header("Location: /lesson15/#login.php?error=1");
     die();
 }

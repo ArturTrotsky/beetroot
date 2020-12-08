@@ -4,7 +4,6 @@ require_once 'config.php';
 require_once FUNCTIONS_PATH . 'db.php';
 require_once FUNCTIONS_PATH . 'system.php';
 
-
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
     $user = getUser($pdo, $_POST['email'], $_POST['password']);

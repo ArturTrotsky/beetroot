@@ -8,11 +8,11 @@ if (empty($_SESSION['username'])) {
         if (generateSignature($userName, $time) == $signature) {
             $_SESSION['username'] = $userName;
         } else {
-            header("Location: /lesson15/login.php");
+            header("Location: /lesson15/#login.php");
             die();
         }
     } else {
-        header("Location: /lesson15/login.php");
+        header("Location: /lesson15/#login.php");
         die();
     }
 }
