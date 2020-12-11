@@ -21,7 +21,7 @@ if (!empty($_POST['products'])) {
         Product::addToCart($pdo, $_SESSION['cart_id'], (int)$product);
     }
 
-    header('location: /homework21/cart.php');
+    header('location: /homework22/cart.php');
     die();
 }
 

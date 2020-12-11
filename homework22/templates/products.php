@@ -1,7 +1,7 @@
 <?php
 ?>
 <div class="main_page">
-    <form method="post" action="/homework21/index.php">
+    <form method="post" action="/homework22/index.php">
         <table border="1">
             <caption>All Products</caption>
             <tr>

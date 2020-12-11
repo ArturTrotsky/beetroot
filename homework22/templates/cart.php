@@ -17,7 +17,7 @@
             <?php endforeach; ?>
         </table>
         <br>
-        <button onclick="window.location.href = '/homework21/';">Back to Shop</button>
+        <button onclick="window.location.href = '/homework22/';">Back to Shop</button>
     <?php else: ?>
         <h2>Your Cart is Empty</h2>
     <?php endif; ?>
